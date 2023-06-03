@@ -14,7 +14,7 @@ export type Result<T> = {
   result?: T;
 };
 
-async function getCharacter<T extends CharacterOverAll | CharacterDetail>(
+async function getCharacter<T extends CharacterOverAll[] | CharacterDetail>(
   id?: string,
   result?: T
 ) {

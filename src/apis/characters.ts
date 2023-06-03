@@ -1,5 +1,5 @@
 export type CharacterOverAll = {
-  id: number;
+  id: string;
   name: string;
   imageUrl: string;
 };

@@ -19,7 +19,11 @@ function CharactersBox({
     <Container>
       {characters?.map((character) => (
         <Item key={character.name}>
-          <Card name={character.name} imageUrl={character.imageUrl} />
+          <Card
+            id={character.id}
+            name={character.name}
+            imageUrl={character.imageUrl}
+          />
         </Item>
       ))}
     </Container>

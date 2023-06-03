@@ -10,14 +10,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <AllCharacters />
+        element: <AllCharacters />,
       },
       {
         path: "characters/:id",
-        element: <Detail />
-      }
-    ]
-  }
+        element: <Detail />,
+      },
+    ],
+  },
 ]);
 
 export default router;

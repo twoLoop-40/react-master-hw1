@@ -1,20 +1,25 @@
-type CharacterOverAll = {
+export type CharacterOverAll = {
   id: number;
   name: string;
   imageUrl: string;
 };
 
-type CharacterDetail = CharacterOverAll & {
+export type CharacterDetail = CharacterOverAll & {
   films: string[];
   sourceUrl: string;
 };
 
+export type Result<T> = {
+  ok: boolean;
+  result?: T;
+};
+
 async function getCharacter<T extends CharacterOverAll | CharacterDetail>(
-  id?: number,
+  id?: string,
   result?: T
 ) {
   const apiAddress = "https://disney_api.nomadcoders.workers.dev/characters";
-  const fetcher = async (id?: number) => {
+  const fetcher = async (id?: string): Promise<Result<T>> => {
     try {
       const responseData = id
         ? fetch(`${apiAddress}/${id}`)
@@ -30,7 +35,7 @@ async function getCharacter<T extends CharacterOverAll | CharacterDetail>(
     return { ok: true, result };
   }
 
-  fetcher(id);
+  return fetcher(id);
 }
 
 export default getCharacter;
